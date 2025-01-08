@@ -2,8 +2,11 @@
 
 namespace App\Jobs;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Models\User;
+use App\Mail\SendEmailToGmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendEmailJob implements ShouldQueue
 {
@@ -12,9 +15,9 @@ class SendEmailJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct(protected User $user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -22,6 +25,6 @@ class SendEmailJob implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        Mail::to($this->user->email)->send(new SendEmailToGmail($this->user));
     }
 }
