@@ -6,7 +6,7 @@
     <title>Email Verification</title>
 </head>
 <body>
-    <h1>Salom {{$user}}</h1>
+    <h1>Salom {{$user_name}}</h1>
     <a href="{{$link}}">Email Tasdiqlash</a>
 </body>
 </html>
