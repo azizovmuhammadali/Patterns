@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Interfaces\Interfaces\Reposity\UserReposityInterface;
-use App\Interfaces\Services\UserServiceInterface;
-use App\Reposity\UserReposity;
 use App\Services\UserService;
+use App\Reposity\UserReposity;
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\Services\UserServiceInterface;
+use App\Interfaces\Reposity\UserReposityInterface;
 
 class InterfaceServiceProvicer extends ServiceProvider
 {
