@@ -2,12 +2,11 @@
 
 namespace App\Services;
 
-use App\Http\Resources\UserResource;
-use App\Traits\ResponseTrait;
 use Illuminate\Support\Str;
+use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\Hash;
 use App\Interfaces\Services\UserServiceInterface;
-use App\Interfaces\Interfaces\Reposity\UserReposityInterface;
+use App\Interfaces\Reposity\UserReposityInterface;
 
 class UserService implements UserServiceInterface
 {
