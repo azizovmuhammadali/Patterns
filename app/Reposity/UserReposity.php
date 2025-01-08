@@ -2,6 +2,7 @@
 
 namespace App\Reposity;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Interfaces\Interfaces\Reposity\UserReposityInterface;
 use App\Traits\ResponseTrait;
@@ -29,6 +30,6 @@ class UserReposity implements UserReposityInterface
    $user = User::where('verification_token', $token)->first();
    $user->email_verified_at = now();
    $user->save();
-   return $this->success([],__('success.email'));
+   return $user;
     }
 }
