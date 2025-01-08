@@ -26,15 +26,21 @@ class UserService implements UserServiceInterface
      return  $this->userReposityInterface->createUser($data);
     }
     public function loginUser($data){
-  $user = $this->userReposityInterface->getUserByEmail($data['email']);
-  if(Hash::check($data['password'], $user['password'])){
-      return $this->success(new UserResource($user),__('success.user.login'));
-} else{
-  return $this->error(__('errors.user.login'));
-}
+      $user = $this->userReposityInterface->getUserByEmail($data['email']);
+      if (!$user) {
+          return $this->error(__('errors.user.not_found'));  
+      }
+      if (Hash::check($data['password'], $user->password)) {
+          $token = $user->createToken('auth_login')->plainTextToken;
+          return [
+              'user' => $user,
+              'token' => $token,
+          ];
+      } else {
+          return $this->error(__('errors.user.login'));
+      }
     }
     public function verifyEmail($token){
-        $this->userReposityInterface->findUserByToken($token);
-        return 'Email verified successfully!';
+      return $this->userReposityInterface->findUserByToken($token);  
     }
 }
