@@ -21,9 +21,17 @@ class AuthController extends Controller
       return $this->success(new UserResource($user),__('success.user.register'));
     }
     public function login(LoginRequest $request){
-        $token = $this->userService->loginUser($request->all());
-        return $this->success(new UserResource($token),__('success.user.login'));
+        $result = $this->userService->loginUser($request->all());
+        if($result){
+        return $this->success([
+            'user' =>new UserResource($result['user']),
+            'token' => $result['token']
+        ],__('success.user.login'));
     }
+    else{
+        return $this->error(__('errors.user.login'));
+    }
+}
     public function findUser(Request $request){
         return $this->success(new UserResource($request->user()));
     }
