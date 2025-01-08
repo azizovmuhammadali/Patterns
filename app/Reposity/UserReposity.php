@@ -2,10 +2,9 @@
 
 namespace App\Reposity;
 
-use App\Http\Resources\UserResource;
 use App\Models\User;
-use App\Interfaces\Interfaces\Reposity\UserReposityInterface;
 use App\Traits\ResponseTrait;
+use App\Interfaces\Reposity\UserReposityInterface;
 
 class UserReposity implements UserReposityInterface
 {
@@ -23,7 +22,7 @@ class UserReposity implements UserReposityInterface
     return $user;
     }
     public function getUserByEmail($email){
-    $user = User::where('email', $email)->first();
+    $user = User::where('email', $email)->first();  
    return $user;
     }
     public function findUserByToken($token){
