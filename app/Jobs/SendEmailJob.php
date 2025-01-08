@@ -17,7 +17,7 @@ class SendEmailJob implements ShouldQueue
      */
     public function __construct(protected User $user)
     {
-        $this->user = $user;
+        
     }
 
     /**
