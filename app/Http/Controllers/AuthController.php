@@ -37,7 +37,7 @@ class AuthController extends Controller
     }
     public function verifyEmail(Request $request){
         $message = $this->userService->verifyEmail($request->token);
-        return $this->success([], $message);
+        return $this->success(new UserResource($message),__('success.email'));
     }
     public function logout(Request $request){
         $request->user()->currentAccessToken()->delete();
