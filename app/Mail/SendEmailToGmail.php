@@ -19,7 +19,6 @@ class SendEmailToGmail extends Mailable
      */
     public function __construct(protected User $user)
     {
-        $this->user = $user;
     }
 
     /**
