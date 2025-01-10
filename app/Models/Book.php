@@ -1,18 +1,25 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+
 class Book extends Model implements TranslatableContract
 {
     use Translatable;
-    public $translatable = [
+
+    public $translatedAttributes = [
         'title',
-         'description',
-        ] ;
+        'description',
+    ];
+
     protected $fillable = [
-        "author_id",
-    ] ;
+        'author_id',
+    ];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
