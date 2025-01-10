@@ -7,13 +7,14 @@ class BookDTO
     /**
      * Create a new class instance.
      */
-    public $author_id;
-    public $title;
-    public $description;
-    public function __construct($author_id,$title,$description)
+    public $user_id;
+    
+    public $translations;
+    public  $images;
+    public function __construct($user_id,$translations, $images)
     {
-        $this->author_id = $author_id;
-        $this->title = $title;
-        $this->description = $description;
+        $this->user_id = $user_id;
+        $this->translations = $translations;
+        $this->images = $images;
     }
 }
