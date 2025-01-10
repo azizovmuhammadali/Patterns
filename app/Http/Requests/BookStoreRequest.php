@@ -24,6 +24,7 @@ class BookStoreRequest extends FormRequest
         return [
             'translations.%title%' => 'required|sometimes|string',
             'translations.%description%' => 'required|sometimes|string',
+            'images' => 'required',
         ];
     }
 }

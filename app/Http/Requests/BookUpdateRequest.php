@@ -24,6 +24,7 @@ class BookUpdateRequest extends FormRequest
         return [
             'translations.%title%' => 'nullable|sometimes|string',
             'translations.%description%' => 'nullable|sometimes|string',
+            'images' => 'nullable',
         ];
     }
 }

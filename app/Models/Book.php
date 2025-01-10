@@ -22,4 +22,7 @@ class Book extends Model implements TranslatableContract
     {
         return $this->belongsTo(User::class,'user_id');
     }
+    public function images(){
+        return  $this->morphMany(Attachment::class,'attachment');
+    }
 }

@@ -28,9 +28,9 @@ class BookController extends Controller
      */
     public function store(BookStoreRequest $request)
     {
-        $bookDto = new BookDTO(Auth::id(), $request->translations);
+        $bookDto = new BookDTO(Auth::id(), $request->translations,$request->file('images'));
         $book = $this->bookServiceInterface->create($bookDto);
-        return $this->success(new BookResource($book->load('translations','author')),__('success.books.created'),201);
+        return $this->success(new BookResource($book->load('translations','author','images')),__('success.books.created'),201);
     }
 
     /**
@@ -39,7 +39,7 @@ class BookController extends Controller
     public function show(string $id)
     {
         $book = $this->bookServiceInterface->getBookById($id);
-        return $this->success(new BookResource($book->load('author','translations')),__('success.books.show'));
+        return $this->success(new BookResource($book->load('author','translations','images')),__('success.books.show'));
     }
 
     /**
@@ -47,9 +47,9 @@ class BookController extends Controller
      */
     public function update(BookUpdateRequest $request, string $id)
     {
-        $bookDTO = new BookDTO(Auth::id(), $request->translations);
+        $bookDTO = new BookDTO(Auth::id(), $request->translations,$request->file('images'));
         $book = $this->bookServiceInterface->update($id,$bookDTO);
-        return $this->success(new BookResource($book->load('author','translations')),__('success.books.updated'));
+        return $this->success(new BookResource($book->load('author','translations','images')),__('success.books.updated'));
     }
 
     /**

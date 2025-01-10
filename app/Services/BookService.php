@@ -23,7 +23,8 @@ class BookService implements BookServiceInterface
     $translations = $this->prepareTranslations(['translations' => $bookDTO->translations], ['title','description']);
         $data = [
             'user_id' => Auth::id(),
-            'translations' => $translations
+            'translations' => $translations,
+            'images' => $bookDTO->images,
         ];
         return $this->bookReposityInterface->create($data);
   }
@@ -38,6 +39,7 @@ class BookService implements BookServiceInterface
   $data = [
     'user_id' => $bookDTO->user_id,
     'translations' => $translations,
+    'images' => $bookDTO->images,
 ];
      return $this->bookReposityInterface->update($id, $data);
   }

@@ -19,6 +19,7 @@ class BookResource extends JsonResource
              'description' => $this->description,
              'author' => new UserResource($this->whenLoaded('author')),
              'translations' => BookTranslationResource::collection($this->whenLoaded('translations')),
+             'images' => AttachmentResource::collection($this->whenLoaded('images')),
         ];
     }
 }
