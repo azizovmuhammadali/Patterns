@@ -14,6 +14,10 @@ class BookTranslationResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'title' => $this->title,
+            'description' => $this->description,
+            'locale' => $this->locale,
+        ];
     }
 }
