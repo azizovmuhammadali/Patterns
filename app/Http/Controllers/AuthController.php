@@ -33,7 +33,7 @@ class AuthController extends Controller
     }
 }
     public function findUser(Request $request){
-        return $this->success(new UserResource($request->user()));
+        return $this->success(new UserResource($request->user()),__('success.user.userFound'));
     }
     public function verifyEmail(Request $request){
         $message = $this->userService->verifyEmail($request->token);
