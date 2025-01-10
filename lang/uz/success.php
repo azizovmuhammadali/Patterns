@@ -6,4 +6,10 @@ return [
      'email'=> 'Email muvaffaqiyatli tasdiqlandi',
      'logout'=> 'Muvaffaqiyatli chiqib ketildi',
     ],
+    'books' => [
+    'all'=> 'Hamma kitoblar',
+    'created'=> 'Kitob yaratildi',
+    'show'=> 'Siz izlagan kitob',
+    'updated'=> 'Kitob yangilangi',
+    'deleted'=> 'Kitob o\'chirildi',]
 ];

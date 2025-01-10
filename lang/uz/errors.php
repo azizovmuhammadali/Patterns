@@ -5,4 +5,7 @@ return [
         'login'=> 'Sizning kiritgan malumotlaringizda hato bor',
         'verify'=> 'Siz email tasdiqlashingiz kerak',
     ],
-]; 
+    'books'=> [
+        'forbidden'=> 'Sizda kirish huquqi yoq!',
+]
+ ];
